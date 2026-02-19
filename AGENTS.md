@@ -116,8 +116,7 @@ From repository root:
 - `npm run dev` — start Vite dev server.
 - `npm run build` — type-check (`vue-tsc`) + production build.
 - `npm run preview` — preview built app.
-
-Current `package.json` does **not** define dedicated lint/test scripts.
+- `npm test` — run unit tests with Vitest.
 
 ---
 
@@ -130,10 +129,4 @@ Current `package.json` does **not** define dedicated lint/test scripts.
 - Follow existing error handling pattern (`err.response?.data?.message` fallback).
 - Use Bootstrap utility/component classes for UI changes.
 - If API shape changes, update store calls + type definitions together.
-
----
-
-## Known Gaps / Refactor Opportunities (non-blocking)
-- `src/style.css` still contains much of Vite starter defaults and may conflict with Bootstrap-centric layout.
-- `Dashboard.vue` has `urls` typed as `any[]`; this can be tightened to `UrlResponse[]`.
-- No automated tests currently exist.
+- Test files live in `src/__tests__/`; use Vitest (`npm test`) with `@vue/test-utils` and mock axios via `vi.mock('axios')`.
