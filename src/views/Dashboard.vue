@@ -57,6 +57,7 @@ import { LogOut } from 'lucide-vue-next';
 import { useAuthStore } from '../stores/auth';
 import { useUrlStore } from '../stores/urls';
 import URLList from '../components/URLList.vue';
+import type { UrlResponse } from '../types/api';
 
 const router = useRouter();
 const authStore = useAuthStore();
@@ -66,7 +67,7 @@ const longUrl = ref('');
 const customCode = ref('');
 const loading = ref(false);
 const error = ref('');
-const urls = ref<any[]>([]);
+const urls = ref<UrlResponse[]>([]);
 
 const handleCreateUrl = async () => {
   loading.value = true;
